@@ -160,6 +160,28 @@ UVM_INFO [COV] Functional coverage = <percent>%
 
 ---
 
+## Results
+
+Simulated on **Cadence Xcelium** (UVM 1.2), 200 constrained-random transactions:
+
+```
+[COV] Functional coverage = 100.00%
+[SB]  Checks run: 94 | Errors: 0
+[SB]  *** TEST PASSED ***
+UVM_ERROR : 0   UVM_FATAL : 0
+```
+
+- **Correctness:** 94 scoreboard checks, 0 mismatches — the DUT matched the golden
+  reference model on every read.
+- **Coverage:** 100% functional coverage — all defined scenarios exercised (FIFO full,
+  FIFO empty, writes, reads, and the simultaneous read+write cross).
+- **Clean run:** zero UVM errors, zero fatals.
+
+*(Assertions in `fifo_if.sv` are valid SVA; they require a simulator with an SVA license
+to simulate and are commented out in the free-tier EDA Playground version.)*
+
+---
+
 ## Skills Demonstrated
 
 - UVM testbench architecture (agent, env, test, sequencer/driver/monitor, scoreboard)
